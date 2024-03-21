@@ -35,3 +35,8 @@ void HoareQuickSorting(int* Arr, int startIndex, int endIndex)
         HoareQuickSorting(Arr, LeftIndex, endIndex); //Начало = левый индекс, конец не меняем
     }
 }
+
+void HoareQuickSorting(int* Arr, int Lenght)
+{
+    HoareQuickSorting(Arr, 0, Lenght - 1);
+}

@@ -1,30 +1,40 @@
 #pragma once
 
+#include <iostream>
+
+using namespace std;
+
 int InterpolarSearch(int* Arr, int Lenght, int element)
 {
+	cout << "»нтерпол€рный посик!" << endl;
+
 	int index = -1;
 	int leftIndex = 0;
 	int rightIndex = Lenght - 1;
 
-	while ((leftIndex < rightIndex) && index == -1)
+	while ((leftIndex <= rightIndex) && index == -1)
 	{
-		int middleIndex = leftIndex + (((element - Arr[leftIndex]) * (rightIndex - leftIndex))/(Arr[rightIndex] - Arr[leftIndex]));
+		int denominator = Arr[rightIndex] - Arr[leftIndex];
 
-		if (Arr[middleIndex] == element)
-			index = middleIndex;
+		int middleIndex = leftIndex + (((element - Arr[leftIndex]) * (rightIndex - leftIndex))/(denominator == 0 ? 1 : denominator));
 
-		else if (Arr[middleIndex] > element)
-			rightIndex = middleIndex - 1;
+		if (middleIndex >= 0 && middleIndex < Lenght)
+		{
+			if (Arr[middleIndex] == element)
+				index = middleIndex;
 
+			else if (Arr[middleIndex] > element)
+				rightIndex = middleIndex - 1;
+
+			else
+				leftIndex = middleIndex + 1;
+		}	
 		else
-			leftIndex = middleIndex + 1;
+		{
+			leftIndex++;
+			rightIndex--;
+		}
 	}
-
-	if (Arr[leftIndex] == element)
-		return leftIndex;
-
-	else if (Arr[rightIndex] == element)
-		return rightIndex;
 
 	return index;
 }

@@ -6,6 +6,8 @@ using namespace std;
 
 pair<int, int> StringBasicSearch(string Line, string subLine)
 {
+	cout << "Метод базового поиска подстроки!" << endl;
+
 	int firstCompearpoint = 0;
 
 	pair<int, int> result = { -1, -1 };
@@ -25,7 +27,7 @@ pair<int, int> StringBasicSearch(string Line, string subLine)
 			firstCompearpoint++;
 
 		else
-			result = { firstCompearpoint, currentCompearPoint};
+			result = {firstCompearpoint, currentCompearPoint -1};
 	}
 
 	return result;

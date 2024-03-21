@@ -1,7 +1,12 @@
 #pragma once
+#include <iostream>
+
+using namespace std;
 
 int BasicSerach(int* Arr, int Lenght, int element) 
 {
+	cout << "Метод базового поиска" << endl;
+
 	bool flag = false;
 	int index = -1;
 
